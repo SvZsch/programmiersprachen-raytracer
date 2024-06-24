@@ -8,7 +8,11 @@
 
 class Box : public Shape {
 public:
+    //Aufgabe 5.2 - Konstruktor
     Box(const glm::vec3& min, const glm::vec3& max);
+    
+    //Aufgabe 5.3 - Konstruktor
+    Box(const std::string& name, const std::string& color, const glm::vec3& min,  glm::vec3& max);
 
     double area() const override;
     double volume() const override;

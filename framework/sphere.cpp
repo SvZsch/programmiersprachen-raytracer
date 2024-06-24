@@ -10,6 +10,10 @@
 Sphere::Sphere(const glm::vec3& center, double radius)
     : center_(center), radius_(radius) {}
 
+//Aufgabe 5.3
+Sphere::Sphere(const std::string& name, const std::string& color, const glm::vec3& center, double radius)
+    : Shape(name, color), center_(center), radius_(radius) {}
+
 double Sphere::area() const {
     return 4 * M_PI * radius_ * radius_;
 }

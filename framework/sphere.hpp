@@ -8,7 +8,11 @@
 
 class Sphere : public Shape {
 public:
+    //Aufgabe 5.2
     Sphere(const glm::vec3& center, double radius);
+
+    //Aufgabe 5.3
+    Sphere(const std::string& name, const std::string& color, const glm::vec3& center, double radius);
 
     double area() const override;
     double volume() const override;
