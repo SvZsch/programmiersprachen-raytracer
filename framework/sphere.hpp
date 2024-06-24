@@ -17,7 +17,7 @@ public:
     double area() const override;
     double volume() const override;
 
-    //Aufgabe 5.4
+    //Aufgabe 5.5
     std::ostream& print(std::ostream& os) const override;
 
 private:

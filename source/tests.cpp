@@ -22,5 +22,19 @@ TEST_CASE("Test Box area and volume", "[box]") {
 }
 
 int main(int argc, char* argv[]) {
+
+    //Aufgabe 5.5
+    Box box1(glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 2.0, 3.0));
+    Box box2("Box1", "Red", glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 2.0, 3.0));
+
+    Sphere sphere1(glm::vec3(0.0, 0.0, 0.0), 5.0);
+    Sphere sphere2("Sphere1", "Blue", glm::vec3(0.0, 0.0, 0.0), 5.0);
+
+    std::cout << box1 << std::endl;
+    std::cout << box2 << std::endl;
+
+    std::cout << sphere1 << std::endl;
+    std::cout << sphere2 << std::endl;
+
     return Catch::Session().run(argc, argv);
 }

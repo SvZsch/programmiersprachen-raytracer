@@ -19,7 +19,7 @@ double Box::volume() const {
     return diff.x * diff.y * diff.z;
 }
 
-//Aufgabe 5.4
+//Aufgabe 5.5
 std::ostream& Box::print(std::ostream& os) const {
     Shape::print(os);
     os << ", Min: (" << min_.x << ", " << min_.y << ", " << min_.z << "), Max: ("
