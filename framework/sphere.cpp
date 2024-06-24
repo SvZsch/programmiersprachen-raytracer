@@ -1,6 +1,8 @@
 //Aufgabe 5.2
 //sphere.cpp
 #include "sphere.hpp"
+#include "ray.hpp"
+#include "hitpoint.hpp"
 #include <cmath>
 
 #ifndef M_PI
@@ -27,4 +29,24 @@ std::ostream& Sphere::print(std::ostream& os) const {
     Shape::print(os);
     os << ", Center: (" << center_.x << ", " << center_.y << ", " << center_.z << "), Radius: " << radius_;
     return os;
+}
+
+//aufgabe 5.6
+HitPoint Sphere::intersect(const Ray& ray) const {
+    glm::vec3 intersectionPosition;
+    glm::vec3 intersectionNormal;
+    float intersectionDistance;
+
+    bool intersects = glm::intersectRaySphere(
+        ray.origin, glm::normalize(ray.direction),
+        center_, static_cast<float>(radius_),
+        intersectionPosition, intersectionNormal
+    );
+
+    if (intersects) {
+        return HitPoint(true, glm::length(intersectionPosition - ray.origin), name_, color_, intersectionPosition, ray.direction);
+    }
+    else {
+        return HitPoint(false, 0.0f, "", "", glm::vec3(0.0f), glm::vec3(0.0f));
+    }
 }

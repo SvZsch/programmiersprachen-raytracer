@@ -4,6 +4,8 @@
 #define SPHERE_HPP
 
 #include "shape.hpp"
+#include "ray.hpp"
+#include "hitpoint.hpp"
 #include <glm/vec3.hpp>
 
 class Sphere : public Shape {
@@ -19,6 +21,10 @@ public:
 
     //Aufgabe 5.5
     std::ostream& print(std::ostream& os) const override;
+
+    //Aufgabe 5.6
+    //Methode zur Schnittberechnung
+    HitPoint intersect(const Ray& ray) const;
 
 private:
     glm::vec3 center_;
