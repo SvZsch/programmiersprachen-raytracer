@@ -18,3 +18,11 @@ double Box::volume() const {
     glm::vec3 diff = max_ - min_;
     return diff.x * diff.y * diff.z;
 }
+
+//Aufgabe 5.4
+std::ostream& Box::print(std::ostream& os) const {
+    Shape::print(os);
+    os << ", Min: (" << min_.x << ", " << min_.y << ", " << min_.z << "), Max: ("
+        << max_.x << ", " << max_.y << ", " << max_.z << ")";
+    return os;
+}

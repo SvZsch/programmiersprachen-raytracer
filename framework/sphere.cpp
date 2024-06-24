@@ -21,3 +21,10 @@ double Sphere::area() const {
 double Sphere::volume() const {
     return (4.0 / 3.0) * M_PI * std::pow(radius_, 3);
 }
+
+//Aufgabe 5.4
+std::ostream& Sphere::print(std::ostream& os) const {
+    Shape::print(os);
+    os << ", Center: (" << center_.x << ", " << center_.y << ", " << center_.z << "), Radius: " << radius_;
+    return os;
+}

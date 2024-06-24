@@ -12,10 +12,13 @@ public:
     Box(const glm::vec3& min, const glm::vec3& max);
     
     //Aufgabe 5.3 - Konstruktor
-    Box(const std::string& name, const std::string& color, const glm::vec3& min,  glm::vec3& max);
+    Box(const std::string& name, const std::string& color, const glm::vec3& min, const glm::vec3& max);
 
     double area() const override;
     double volume() const override;
+
+    //Aufgabe 5.4
+    std::ostream& print(std::ostream& os) const override;
 
 private:
     glm::vec3 min_;
