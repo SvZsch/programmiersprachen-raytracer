@@ -1,38 +1,42 @@
 //Aufgabe 5.1
 // shape
 
-#ifndef SHAPE_HPP
-#define SHAPE_HPP
+#ifndef SHAPE_HPP                                                                   // Prüft, ob SHAPE_HPP definiert ist.
+#define SHAPE_HPP                                                                   // Definiert SHAPE_HPP, um Mehrfacheinschließungen zu vermeiden.
 
 //Aufgabe 5.3
-#include <string>
+#include <string>                                                                   // Inklusion der String-Bibliothek für Zeichenkettenoperationen.
 
 //Aufgabe 5.4
-#include<iostream>
+#include <iostream>                                                                // Inklusion der iostream-Bibliothek für Ein- und Ausgabefunktionen.
 
+// Definition der Klasse Shape als Basisklasse für verschiedene geometrische Formen.
 class Shape {
 public:
-    //Aufgabe 5.1 Standart Konstruktor
-    Shape();
+    //Aufgabe 5.1 Standardkonstruktor
+    Shape();                                                                        // Deklariert einen parameterlosen Konstruktor.
+
     //Aufgabe 5.3 - Überladener (Parametrisierter) Konstruktor
-    Shape(const std::string& name, const std::string& color);
-    virtual ~Shape() = default;
+    Shape(const std::string& name, const std::string& color);                       // Deklariert einen Konstruktor, der Name und Farbe akzeptiert.
+
+    // Destruktor
+    virtual ~Shape();                                                               // Deklariert einen virtuellen Destruktor, um sicherzustellen, dass abgeleitete Klassen korrekt zerstört werden.
 
     // Rein virtuelle Methoden (pure virtual methods)
-    virtual double area() const = 0;
-    virtual double volume() const = 0;
-    
-    //Aufgabe 5.4
-    virtual std::ostream& print(std::ostream& os) const;
+    virtual double area() const = 0;                                                // Deklariert eine rein virtuelle Methode zur Berechnung der Fläche, die in abgeleiteten Klassen implementiert werden muss.
+    virtual double volume() const = 0;                                              // Deklariert eine rein virtuelle Methode zur Berechnung des Volumens, die in abgeleiteten Klassen implementiert werden muss.
 
-//Aufgabe 5.3
-protected:
-    std::string name_;
-    std::string color_;
+    //Aufgabe 5.4
+    virtual std::ostream& print(std::ostream& os) const;                            // Deklariert eine virtuelle Methode zum Drucken der Eigenschaften, die in abgeleiteten Klassen überschrieben werden kann.
+
+    //Aufgabe 5.3
+protected:                                                                          // Geschützte Mitglieder sind in abgeleiteten Klassen zugänglich, aber nicht von außerhalb der Klasse.
+    std::string name_;                                                              // Speichert den Namen der Form.
+    std::string color_;                                                             // Speichert die Farbe der Form.
 };
 
 //Aufgabe 5.4
-std::ostream& operator<<(std::ostream& os, Shape const& s);     //überladen des << operators
+std::ostream& operator<<(std::ostream& os, Shape const& s);                         // Deklariert die Überladung des << Operators zur Ausgabe von Shape-Objekten.
 
 //Aufgabe 5.5
 /*Überschreiben der Methode print in den abgeleiteten Klassen
@@ -115,5 +119,11 @@ Zusammenfassend sind die Begriffe wie folgt zu verstehen:
 Der statische Typ ist der zur Kompilierungszeit bekannte Typ.
 Der dynamische Typ ist der Typ des Objekts, auf das die Variable zur Laufzeit verweist.
 Typüberprüfungen erfolgen für den statischen Typ zur Kompilierungszeit und für den dynamischen Typ zur Laufzeit durch dynamische Bindung (Polymorphie).*/
+
+//Aufgabe 5.9
+/*Klassenhierarchie: Zeigt, wie Baupläne (Klassen) miteinander verwandt sind. Beispiel: Transportmittel -> Fahrzeug -> Auto.
+Objekthierarchie: Zeigt, wie echte Dinge (Objekte) miteinander verbunden sind. Beispiel: Spielzeugauto -> Räder, Motor, Karosserie.
+Klassendiagramm: Eine Blaupause, die die Struktur und Beziehungen von Klassen zeigt. Beispiel: Klasse "Auto" hat einen "Motor".
+Objektdiagramm: Ein Foto, das eine Momentaufnahme der Objekte und ihre Beziehungen zeigt. Beispiel: Objekt "meinAuto" hat Objekt "meinMotor".*/
 
 #endif // SHAPE_HPP
